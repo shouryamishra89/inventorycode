@@ -1,0 +1,132 @@
+A mutation that marks a delivery as received.
+
+Post URL:http://localhost:9090/warehouse/validateItem
+Request JSON :
+{
+    "deliveryId": "4",
+    "product": "Bananas",
+    "supplier": "JungleInc",
+    "quantity": "1",
+    "expectedDate": "2020-10-08T07:18:42.937",
+    "expectedWarehouse": "BerlinZoo"
+  }
+
+Response JSON:
+{
+    "deliveryId": 4,
+    "product": "Bananas",
+    "supplier": "JungleInc",
+    "quantity": 1,
+    "expectedDate": "2020-10-08T07:18:42.937",
+    "expectedWarehouse": "BerlinZoo",
+    "deliverystatus": "Received",
+    "paymentstatus": "Payment Proceed"
+}
+
+--------------------------------------------------------------------------------------
+A query that is able to either list all deliveries not yet received, or all deliveries that
+have already been received.
+
+GET URL:http://localhost:9090/warehouse/list/Received
+
+Response JSON : Getting list of Received deliveries.
+[
+    {
+        "deliveryId": 1,
+        "product": "Bananas",
+        "supplier": "JungleInc",
+        "quantity": 40,
+        "expectedDate": "2027-01-08T07:17:48.237Z",
+        "expectedWarehouse": "TheMoon",
+        "deliverystatus": "Received",
+        "paymentstatus": "Payement Proceed"
+    },
+    {
+        "deliveryId": 3,
+        "product": "Skull, Crystal",
+        "supplier": "Akator",
+        "quantity": 1,
+        "expectedDate": "2008-05-22T00:00:00.001Z",
+        "expectedWarehouse": "Headquarters",
+        "deliverystatus": "Received",
+        "paymentstatus": "Payement Proceed"
+    },
+    {
+        "deliveryId": 4,
+        "product": "Bananas",
+        "supplier": "JungleInc",
+        "quantity": 1,
+        "expectedDate": "2020-10-08T07:18:42.937",
+        "expectedWarehouse": "BerlinZoo",
+        "deliverystatus": "Received",
+        "paymentstatus": "Proceed further"
+    },
+    {
+        "deliveryId": 6,
+        "product": "Salad",
+        "supplier": "HealthyFoodInc",
+        "quantity": 600,
+        "expectedDate": "2021-11-01T11:20:42.000Z",
+        "expectedWarehouse": "Headquarters",
+        "deliverystatus": "Received",
+        "paymentstatus": "Proceed further"
+    },
+    {
+        "deliveryId": 7,
+        "product": "Salad",
+        "supplier": "HealthyFoodInc",
+        "quantity": 400,
+        "expectedDate": "2021-11-02T11:20:42.000Z",
+        "expectedWarehouse": "Headquarters",
+        "deliverystatus": "Received",
+        "paymentstatus": "Payement Proceed"
+    },
+    {
+        "deliveryId": 8,
+        "product": "",
+        "supplier": "HealthyFoodInc",
+        "quantity": 4,
+        "expectedDate": "2021-11-03T11:20:42.000Z",
+        "expectedWarehouse": "Headquarters",
+        "deliverystatus": "Received",
+        "paymentstatus": "Payment Proceed"
+    }
+]
+
+
+GET URL:http://localhost:9090/warehouse/list/Not Received
+
+Response JSON : Getting list of Not Received deliveries.
+[
+    {
+        "deliveryId": 2,
+        "product": "Saiyans",
+        "supplier": "Bardock",
+        "quantity": 40,
+        "expectedDate": "2019-10-10T09:08:11.098Z",
+        "expectedWarehouse": "Namek",
+        "deliverystatus": "Not Received",
+        "paymentstatus": "Payement Not Proceed"
+    },
+    {
+        "deliveryId": 5,
+        "product": "Mango",
+        "supplier": "HealthyFoodInc",
+        "quantity": 1,
+        "expectedDate": "2020-05-01T09:00:42.000Z",
+        "expectedWarehouse": "sweden",
+        "deliverystatus": "Not Received",
+        "paymentstatus": "Payement Not Proceed"
+    },
+    {
+        "deliveryId": 33,
+        "product": "",
+        "supplier": "JungleInc",
+        "quantity": 40,
+        "expectedDate": "2027-01-08T07:17:48.237Z",
+        "expectedWarehouse": "TheMoon",
+        "deliverystatus": "Not Received",
+        "paymentstatus": "Payement Not Proceed"
+    }
+]
+
